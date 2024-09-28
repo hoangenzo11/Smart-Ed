@@ -97,6 +97,38 @@ const getSingeTutor = async (req, res) => {
     }
 };
 
+const searchTutorByName = async (req, res) => {
+    const { name, minPrice, maxPrice, specialization } = req.query;
+
+    if (!name) {
+        return res.status(400).json({ success: false, error: 'Name query parameter is required' });
+    }
+
+    const query = {
+        name: { $regex: name, $options: 'i' },
+        isApproved: 'approved'
+    };
+
+    if (minPrice || maxPrice) {
+        query.price = {};
+        if (minPrice) query.price.$gte = minPrice;
+        if (maxPrice) query.price.$lte = maxPrice;
+    }
+
+    if (specialization) {
+        query.specialization = specialization;
+    }
+
+    try {
+        const tutors = await Tutor.find(query).select('-password');
+        if (tutors.length === 0) {
+            return res.status(404).json({ success: false, message: 'No tutors found' });
+        }
+        res.status(200).json({ success: true, data: tutors });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
 const getAllTutors = async (req, res) => {
     try {
         const { query } = req.query;
@@ -149,6 +181,7 @@ const TutorController = {
     updateTutor,
     deleteTutor,
     getSingeTutor,
+    searchTutorByName,
     getAllTutors,
     getAllApplications
 };
