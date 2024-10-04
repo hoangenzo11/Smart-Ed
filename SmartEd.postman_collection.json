@@ -1,0 +1,520 @@
+{
+	"info": {
+		"_postman_id": "76d5c3b3-829d-4072-93c6-1976af5e41ac",
+		"name": "SmartEd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36971272"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"123\",\r\n    \"name\": \"Nguyen Van B\",\r\n    \"phone\": 1234567890,\r\n    \"photo\": \"https://example.com/photo.jpg\",\r\n    \"role\": \"parent\",\r\n    \"gender\": \"male\",\r\n    \"address\": \"123 Đường ABC, Quận 1, TP. HCM\",\r\n    \"age\": 30\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"email\": \"user@example.com\",\r\n        \"password\": \"123\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/reset-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log out",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/request-password-reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"request-password-reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Type new password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/auth/forgot-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search tutor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/tutor/search?name=enz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tutor",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "enz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NTc0OWI5MDI2Njk3MWEyMjY3NGUiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzU3MzQwLCJleHAiOjE3Mjk5NDkzNDB9.DKUcDCJvtSXzs08C1yhB_dnnZTBUPLkCxoo6KYc40nc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/user/66f55749b90266971a22674e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"66f55749b90266971a22674e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all tutor",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get singer tutor",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1YTU0M2NmNWIyYTAyMTU3YjNmNGIiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3Mzc1Mjc5LCJleHAiOjE3Mjk5NjcyNzl9.52t5UusMLQCi06t988VXLKE_MY3-9AuFYpErczOqiok",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Murad\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/66f5a543cf5b2a02157b3f4b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"66f5a543cf5b2a02157b3f4b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apply",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NjM5NzM1MzlhN2MzZmQ5MzE4MzIiLCJlbWFpbCI6ImhvYW5ndHV0b3JAZ21haWwuY29tIiwicm9sZSI6InR1dG9yIiwiaWF0IjoxNzI3MzU4Mzg0LCJleHAiOjE3Mjk5NTAzODR9.O_yz4qCgHadM-gGk34EXjWxXOLZuq7Y6-EfkZC-wKn8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"specialization\": \"Mathematics\",\r\n    \"qualifications\": [\r\n        {\r\n            \"img\": \"http://example.com/qualification1.jpg\",\r\n            \"name\": \"Bachelor of Science in Mathematics\"\r\n        },\r\n        {\r\n            \"img\": \"http://example.com/qualification2.jpg\",\r\n            \"name\": \"Master of Science in Mathematics\"\r\n        }\r\n    ],\r\n    \"experiences\": [\r\n        \"5 years of teaching high school mathematics\",\r\n        \"3 years of tutoring college students in calculus\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tutor/apply",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tutor",
+						"apply"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all apply",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NjJjOGMxOThkYzgzZGRiOGE2YzgiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNzM3NjI4MSwiZXhwIjoxNzI5OTY4MjgxfQ.imPmYi0-H9VartFtf2-j_H406KHW-X0aLemv3K8bqBU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/tutor/applications",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tutor",
+						"applications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approval tutor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\":\"accept\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tutor/approval/66f563973539a7c3fd931832",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tutor",
+						"approval",
+						"66f563973539a7c3fd931832"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Review tutor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NmI0MjA0MDJiNjJiMDY2NzZiNzAiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzU5ODU3LCJleHAiOjE3Mjk5NTE4NTd9.pLADdl2HzKWp5MLzjs2J2aAinI2Jk834e78QLKTyecE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reviewText\":\"good\",\r\n    \"rating\":\"4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/tutor//66f563973539a7c3fd931832/review",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tutor",
+						"",
+						"66f563973539a7c3fd931832",
+						"review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Booking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NmI0MjA0MDJiNjJiMDY2NzZiNzAiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzYxODI2LCJleHAiOjE3Mjk5NTM4MjZ9.qIw_QOlmRtNHAyy7NnCKnH82UkzqUHU7M_z9RmPYTU4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tutor\": \"66f563973539a7c3fd931832\",\r\n    \"price\": \"50\",\r\n    \"appointmentDate\": \"2023-10-15T10:00:00Z\",\r\n    \"timeSlot\": \"10:00 AM - 11:00 AM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/booking/66f56b420402b62b06676b70",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"booking",
+						"66f56b420402b62b06676b70"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approal booking",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"approved\",\r\n    \"isPaid\":\"True\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/booking/approve/66f574dd36af72870cca6a51",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"booking",
+						"approve",
+						"66f574dd36af72870cca6a51"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all booking",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get own booking",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update tutor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/tutor/66f5a5f4753a4ffed9537214",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tutor",
+						"66f5a5f4753a4ffed9537214"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

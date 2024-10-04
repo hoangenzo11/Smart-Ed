@@ -15,14 +15,12 @@ const tutorSchema = new Schema({
         default: "tutor",
     },
 
-    // Fields for doctors only
+    // Fields for tutor only
     specialization: {
         type: String,
         enum: [
             'Vietnamese',
             'Mathematics',
-            'Science',
-            'History and Geography',
             'Literature',
             'Physics',
             'Chemistry',

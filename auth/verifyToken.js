@@ -2,24 +2,7 @@ const jwt = require('jsonwebtoken');
 const Tutor = require('../models/TutorSchema');
 const User = require('../models/UserSchema');
 
-// const authenticate = async (req, res, next) => {
-//     const authToken = req.headers.authorization;
-//     if (!authToken || !authToken.startsWith('Bearer')) {
-//         return res.status(401).json({ success: false, error: 'Unauthorized' });
-//     }
-//     try {
-//         const token = authToken.split(' ')[1];
-//         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-//         req.userId = decoded._id;
-//         req.role = decoded.role;
-//         next();
-//     } catch (error) {
-//         if (error.name === 'TokenExpiredError') {
-//             return res.status(401).json({ success: false, error: 'Unauthorized' });
-//         }
-//         return res.status(400).json({ success: false, error: error.message });
-//     }
-// }
+
 
 const authenticate = async (req, res, next) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
