@@ -1,4 +1,6 @@
 const Booking = require('../models/bookingSchema');
+const Tutor = require('../models/tutorSchema');
+const User = require('../models/userSchema');
 
 
 const getAllBookings = async (req, res) => {
@@ -45,6 +47,11 @@ const createBooking = async (req, res) => {
         });
 
         const savedBooking = await newBooking.save();
+
+        // Update the Tutor and User models
+        await Tutor.findByIdAndUpdate(tutor, { $push: { booking: savedBooking._id } });
+        await User.findByIdAndUpdate(userId, { $push: { booking: savedBooking._id } });
+
         const imageUrl = `${req.protocol}://${req.get('host')}/images/qrcode.png`;
 
         res.status(200).json({

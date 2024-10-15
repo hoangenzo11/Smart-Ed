@@ -4,7 +4,7 @@ const tutorSchema = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     name: { type: String, required: true },
-    phone: { type: Number },
+    phone: { type: String },
     photo: { type: String },
     price: { type: Number },
     gender: {type: String, enum: ["male", "female", "other"]},
@@ -39,7 +39,7 @@ const tutorSchema = new Schema({
         type: Array,
     },
 
-    bio: { type: String, maxLength: 50 },
+    bio: { type: String },
     about: { type: String },
     reviews: [{ type: mongoose.Types.ObjectId, ref: "Review" }],
     booking : [{ type: mongoose.Types.ObjectId, ref: "Booking" }],

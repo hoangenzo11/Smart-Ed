@@ -1,21 +1,12 @@
-
 require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
-require('dotenv').config();
-const nodemailer = require('nodemailer'); // Add this line
-
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
+const User = require('../models/userSchema');
+const Tutor = require('../models/tutorSchema');
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-
-
-const User = require('../models/UserSchema');
-const Tutor = require('../models/TutorSchema');
-const jwt = require('jsonwebtoken');
-
-const crypto = require('crypto');
-const bcrypt = require('bcrypt');
-
 
 const generateToken = (user) => {
     return jwt.sign(
@@ -29,50 +20,9 @@ const generateToken = (user) => {
             expiresIn: '30d',
         }
     );
-}
-// // register
-// const register = async (req, res) => {
-//     const { email, password, name, role, photo, gender } = req.body;
-//     let user = null;
-//     try {
-//         if (role === 'parent') {
-//             user = await User.findOne({ email });
-//         } else if (role === 'tutor') {
-//             user = await Tutor.findOne({ email });
-//         }
-//         if (user) {
-//             return res.status(400).json({ success: false, error: 'User already exists' });
-//         }
-//         // hash password
-//         const salt = await bcrypt.genSalt(10);
-//         const hashPassword = await bcrypt.hash(password, salt);
-//
-//         if (role === 'parent') {
-//             user = new User({
-//                 email,
-//                 password: hashPassword,
-//                 name,
-//                 role,
-//
-//             });
-//         }
-//         if (role === 'tutor') {
-//             user = new Tutor({
-//                 email,
-//                 password: hashPassword,
-//                 name,
-//                 role,
-//                 photo,
-//                 gender,
-//             });
-//         }
-//         await user.save();
-//         res.status(200).json({ success: true, message: 'User created successfully' });
-//     } catch (error) {
-//         res.status(500).json({ success: false, error: error.message });
-//     }
-// }
+};
 
+// register
 const register = async (req, res) => {
     const { email, password, name, role, photo, gender } = req.body;
     let user = null;
@@ -85,9 +35,6 @@ const register = async (req, res) => {
         if (user) {
             return res.status(400).json({ success: false, error: 'User already exists' });
         }
-        // hash password
-        const salt = await bcrypt.genSalt(10);
-        const hashPassword = await bcrypt.hash(password, salt);
 
         // Generate verification token
         const verificationToken = crypto.randomBytes(32).toString('hex');
@@ -96,17 +43,16 @@ const register = async (req, res) => {
         if (role === 'parent') {
             user = new User({
                 email,
-                password: hashPassword,
+                password, // No hashing
                 name,
                 role,
                 verificationToken,
                 verificationTokenExpiry,
             });
-        }
-        if (role === 'tutor') {
+        } else if (role === 'tutor') {
             user = new Tutor({
                 email,
-                password: hashPassword,
+                password, // No hashing
                 name,
                 role,
                 photo,
@@ -119,7 +65,7 @@ const register = async (req, res) => {
         // Send verification email
         const verificationUrl = `http://${req.headers.host}/api/auth/verify-email?token=${verificationToken}`;
         const msg = {
-            to: email, // Set to the user's email address
+            to: email,
             from: process.env.EMAIL_USER,
             subject: 'Email Verification',
             text: `Please verify your email by clicking the following link: ${verificationUrl}`,
@@ -153,7 +99,7 @@ const verifyEmail = async (req, res) => {
         // Clear the verification token fields and mark the user as verified
         user.verificationToken = undefined;
         user.verificationTokenExpiry = undefined;
-        user.isVerified = true; // Assuming you have an `isVerified` field in your schema
+        user.isVerified = true;
         await user.save();
 
         res.status(200).json({ success: true, message: 'Email has been verified successfully' });
@@ -162,36 +108,6 @@ const verifyEmail = async (req, res) => {
     }
 };
 
-// const verifyEmail = async (req, res) => {
-//     const { token } = req.query;
-//
-//     try {
-//         const user = await User.findOne({
-//             verificationToken: token,
-//             verificationTokenExpiry: { $gt: Date.now() }
-//         }) || await Tutor.findOne({
-//             verificationToken: token,
-//             verificationTokenExpiry: { $gt: Date.now() }
-//         });
-//
-//         if (!user) {
-//             return res.status(400).json({ success: false, error: 'Verification token is invalid or has expired' });
-//         }
-//
-//         // Clear the verification token fields and mark the user as verified
-//         user.verificationToken = undefined;
-//         user.verificationTokenExpiry = undefined;
-//         user.isVerified = true; // Assuming you have an `isVerified` field in your schema
-//         await user.save();
-//
-//         res.status(200).json({ success: true, message: 'Email has been verified successfully' });
-//     } catch (error) {
-//         res.status(500).json({ success: false, error: error.message });
-//     }
-// };
-
-
-// login
 const login = async (req, res) => {
     const { email, password } = req.body;
     let user = null;
@@ -206,37 +122,31 @@ const login = async (req, res) => {
         if (!user) {
             return res.status(400).json({ success: false, error: 'User does not exist' });
         }
-        // Check if the user is verified
         if (!user.isVerified) {
             return res.status(400).json({ success: false, error: 'Email is not verified' });
         }
-        // Check password
-        const isPasswordMatch = await bcrypt.compare(req.body.password, user.password);
-        if (!isPasswordMatch) {
+        if (password !== user.password) {
             return res.status(400).json({ success: false, error: 'Invalid credentials' });
         }
-        // Create token
         const token = generateToken(user);
         console.log('Token:', token);
-        const { password, role, appointments, ...rest } = user._doc;
+        const { password: userPassword, role, appointments, ...rest } = user.toObject();
+
         res.status(200).json({
             status: true,
             message: 'User logged in successfully',
             token,
-            data: { ...rest },
             role
         });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
     }
 };
-
-// logout
 const logout = (req, res) => {
-    res.clearCookie('token'); // Assuming the token is stored in a cookie
+    res.clearCookie('token');
     res.status(200).json({ success: true, message: 'Logged out successfully' });
 };
-// request password reset
+
 const requestPasswordReset = async (req, res) => {
     const { email } = req.body;
     let user = null;
@@ -246,7 +156,6 @@ const requestPasswordReset = async (req, res) => {
             return res.status(400).json({ success: false, error: 'User does not exist' });
         }
 
-        // Generate a reset token
         const resetToken = crypto.randomBytes(32).toString('hex');
         const resetTokenExpiry = Date.now() + 3600000; // 1 hour
 
@@ -254,7 +163,6 @@ const requestPasswordReset = async (req, res) => {
         user.resetPasswordExpires = resetTokenExpiry;
         await user.save();
 
-        // Send email
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
@@ -282,10 +190,9 @@ const requestPasswordReset = async (req, res) => {
     }
 };
 
-// reset password
 const resetPassword = async (req, res) => {
     const { oldPassword, newPassword } = req.body;
-    const userId = req.params.id; // Get the user ID from the request parameters
+    const userId = req.params.id;
 
     try {
         const user = await User.findById(userId) || await Tutor.findById(userId);
@@ -294,18 +201,11 @@ const resetPassword = async (req, res) => {
             return res.status(400).json({ success: false, error: 'User not found' });
         }
 
-        // Check if the old password matches
-        const isPasswordMatch = await bcrypt.compare(oldPassword, user.password);
-        if (!isPasswordMatch) {
+        if (oldPassword !== user.password) {
             return res.status(400).json({ success: false, error: 'Old password is incorrect' });
         }
 
-        // Hash the new password
-        const salt = await bcrypt.genSalt(10);
-        const hashPassword = await bcrypt.hash(newPassword, salt);
-
-        // Update the user's password
-        user.password = hashPassword;
+        user.password = newPassword;
         await user.save();
 
         res.status(200).json({ success: true, message: 'Password has been reset successfully' });
@@ -313,7 +213,7 @@ const resetPassword = async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 };
-// forgot password
+
 const forgotPassword = async (req, res) => {
     const { token, newPassword } = req.body;
     console.log('Reset token:', token);
@@ -331,12 +231,7 @@ const forgotPassword = async (req, res) => {
             return res.status(400).json({ success: false, error: 'Password reset token is invalid or has expired' });
         }
 
-        // Hash the new password
-        const salt = await bcrypt.genSalt(10);
-        const hashPassword = await bcrypt.hash(newPassword, salt);
-
-        // Update the user's password and clear the reset token fields
-        user.password = hashPassword;
+        user.password = newPassword;
         user.resetPasswordToken = undefined;
         user.resetPasswordExpires = undefined;
         await user.save();
@@ -355,6 +250,6 @@ const AuthController = {
     requestPasswordReset,
     resetPassword,
     forgotPassword
-}
+};
 
 module.exports = AuthController;
