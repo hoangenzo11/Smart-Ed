@@ -1,0 +1,364 @@
+[{
+  "_id": {
+    "$oid": "670d30093036f7cccb0c90db"
+  },
+  "email": "nhontrungnguyen97@gmail.com",
+  "password": "123",
+  "name": "Nguyễn Nhơn Trung",
+  "phone": "038387390",
+  "price": 500000,
+  "gender": "male",
+  "address": "Mỹ An Ngũ Hành Sơn Đà Nẵng",
+  "age": 26,
+  "role": "tutor",
+  "specialization": "Chemistry",
+  "qualifications": [
+    {
+      "name": "Cử nhân ngành Công nghệ Sinh học Đại học Bách Khoa Đà Nẵng",
+      "img": "https://i.ibb.co/HrMfXCC/Thi-t-k-ch-a-c-t-n.png"
+    }
+  ],
+  "experiences": [
+    "3 năm kinh nghiệm dạy kèm Hóa Sinh thi học sinh giỏi và chuyển cấp",
+    "Hướng dẫn thành công nhiều học sinh đạt giải cấp thành phố môn Hóa học"
+  ],
+  "bio": "Đam mê nghiên cứu và truyền đạt kiến thức khoa học tự nhiên",
+  "about": "Tôi là một giáo viên trẻ nhiệt huyết có kinh nghiệm giảng dạy Hóa học và Sinh học",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/JzsBcKY/316280214-2324268177724694-4532570640617813464-n.jpg",
+  "__v": 1,
+  "booking": [
+    {
+      "$oid": "670e089bf6527c9922a1f6c7"
+    }
+  ],
+  "reviews": [
+    {
+      "$oid": "670e05ea36523fb5bc37f3f3"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "670d30093036f7cccb0c90dc"
+  },
+  "email": "lanpham02@gmail.com",
+  "password": "123",
+  "name": "Phạm Hoàng Lan",
+  "phone": "0967736247",
+  "price": 500000,
+  "gender": "female",
+  "address": "Thạch Thang Hải Châu Đà Nẵng",
+  "age": 22,
+  "role": "tutor",
+  "specialization": "Literature",
+  "qualifications": [
+    {
+      "name": "Sinh viên năm cuối ngành Sư phạm Ngữ văn Đại học Sư phạm - Đại học Đà Nẵng",
+      "img": "https://i.ibb.co/3pRs5TP/giaykhen.png\n"
+    }
+  ],
+  "experiences": [
+    "1 năm kinh nghiệm dạy kèm Ngữ văn cho học sinh cấp 2",
+    "Hỗ trợ nhiều học sinh cải thiện điểm số và phát triển kỹ năng viết"
+  ],
+  "bio": "Yêu thích văn học và có khả năng truyền đạt tình yêu này đến học sinh",
+  "about": "Tôi là một gia sư trẻ đầy nhiệt huyết và đam mê với môn Ngữ văn",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/zfpg3sx/422011717-3776171029286512-811327146493205558-n.jpg"
+},
+{
+  "_id": {
+    "$oid": "670d30093036f7cccb0c90dd"
+  },
+  "email": "kieutrinh2002@gmail.com",
+  "password": "123",
+  "name": "Phạm Kiều Trinh",
+  "phone": "036635445",
+  "price": 700000,
+  "gender": "female",
+  "address": "Khuê Mỹ Ngũ Hành Sơn Đà Nẵng",
+  "age": 24,
+  "role": "tutor",
+  "specialization": "English",
+  "qualifications": [
+    {
+      "name": "Cử nhân Ngôn ngữ Anh Đại học Ngoại ngữ - Đại học Đà Nẵng",
+      "img": "https://i.ibb.co/wC9fHSK/Pham-Kieu-Trinh.png"
+    }
+  ],
+  "experiences": [
+    "5 năm kinh nghiệm dạy kèm tiếng Anh cho học sinh cấp 1 và cấp 2",
+    "Giúp nhiều học sinh đạt điểm cao trong các kỳ thi Tiếng Anh và cải thiện kỹ năng giao tiếp"
+  ],
+  "bio": "Đam mê ngôn ngữ và văn hóa các nước",
+  "about": "Tôi là một gia sư Tiếng Anh giàu kinh nghiệm với phương pháp giảng dạy hiệu quả",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/nRRLsJ3/422697542-1423293734940603-8903958026866877964-n.jpg"
+},
+{
+  "_id": {
+    "$oid": "670d30093036f7cccb0c90de"
+  },
+  "email": "minhhoa2003@gmail.com",
+  "password": "123",
+  "name": "Nghiêm Tú Minh Hòa",
+  "phone": "0816565489",
+  "price": 600000,
+  "gender": "female",
+  "address": "Đại Học FPT Hòa Hải Ngũ Hành Sơn Đà Nẵng",
+  "age": 21,
+  "role": "tutor",
+  "specialization": "Literature",
+  "qualifications": [
+    {
+      "name": "Cựu học sinh chuyên văn THPT Chuyên Quốc Học Huế",
+      "img": "https://i.ibb.co/vkVMqrB/7.png"
+    }
+  ],
+  "experiences": [
+    "3 năm kinh nghiệm dạy kèm tiếng Việt và Ngữ Văn cho học sinh cấp 1 và cấp 2",
+    "Ôn thi các bạn học sinh từ lớp 9 lên 10 với nhiều tỷ lệ đậu cao"
+  ],
+  "bio": "Học đội tuyển văn từ năm lớp 6 học sinh chuyên ngữ văn",
+  "about": "Tôi chú trọng việc sửa bài tập liên tục để học sinh hiểu rõ kiến thức và lỗi sai",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/Nrc8ktg/gia-s-nghi-m-t-minh-h-a.jpg"
+},
+{
+  "_id": {
+    "$oid": "670d30093036f7cccb0c90df"
+  },
+  "email": "pnphuong248@gmail.com",
+  "password": "123",
+  "name": "Phạm Nguyên Phương",
+  "phone": "0778476370",
+  "price": 700000,
+  "gender": "female",
+  "address": "39 Láng Hạ Ba Đình Hà Nội",
+  "age": 34,
+  "role": "tutor",
+  "specialization": "English",
+  "qualifications": [
+    {
+      "name": "Tốt nghiệp Á Khoa trường ĐH Ngoại Ngữ Hà Nội",
+      "img": "https://i.ibb.co/YbvFsNj/CERTI-GIA-S-PH-M-NGUY-N-PH-NG.png"
+    }
+  ],
+  "experiences": [
+    "7 năm kinh nghiệm dạy kèm tiếng Anh cho học sinh cấp 2 và cấp 3",
+    "Luyện thi IELTS và TOEIC, giúp học sinh đạt điểm cao"
+  ],
+  "bio": "Đam mê ngôn ngữ và văn hóa các nước",
+  "about": "Phương pháp dạy tương tác và thực hành giúp học sinh cải thiện kỹ năng",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/Qjq0FHz/GIA-S-PH-M-NGUY-N-PH-NG.png"
+},
+{
+  "_id": {
+    "$oid": "670d310a3036f7cccb0c90e1"
+  },
+  "email": "buitranthanhdat2003@gmail.com",
+  "password": "123",
+  "name": "Bùi Trần Thành Đạt",
+  "phone": "0762552092",
+  "price": 600000,
+  "gender": "male",
+  "address": "Khuê Mỹ Ngũ Hành Sơn Đà Nẵng",
+  "age": 21,
+  "role": "tutor",
+  "specialization": "Physics",
+  "qualifications": [
+    {
+      "name": "Giải Ba Vật Lý Tỉnh cấp THPT",
+      "img": "https://i.ibb.co/XpXry1y/certi-B-i-Tr-n-Th-nh-t.png"
+    }
+  ],
+  "experiences": [
+    "2 năm kinh nghiệm dạy kèm Vật Lý thi Chuyên Lê Quý Đôn Đà Nẵng",
+    "Hướng dẫn học sinh đạt kết quả cao trong các kỳ thi chuyên"
+  ],
+  "bio": "Thuộc đội tuyển Vật Lý từ lớp 8 9 và đạt thành tích cao",
+  "about": "Phương pháp dạy sát với đề thi thực tế, chú trọng vào bản chất các hiện tượng vật lý",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/b1hJ4dT/gsu-B-i-TR-n-Th-nh-t.png"
+},
+{
+  "_id": {
+    "$oid": "670d310a3036f7cccb0c90e2"
+  },
+  "email": "lengocbaokhanh2002@gmail.com",
+  "password": "123",
+  "name": "Lê Ngọc Bảo Khanh",
+  "phone": "0948432559",
+  "price": 650000,
+  "gender": "female",
+  "address": "Lê Duẩn Hải Châu Đà Nẵng",
+  "age": 22,
+  "role": "tutor",
+  "specialization": "Chemistry",
+  "qualifications": [
+    {
+      "name": "Giải Nhì Học sinh giỏi Hoá cấp thành phố năm lớp 9",
+      "img": "https://i.ibb.co/LRZB13S/Certi-LNgoc-B-o-Khanh.png"
+    }
+  ],
+  "experiences": [
+    "3 năm kinh nghiệm dạy kèm Hoá cho học sinh lớp 8 9 và ôn thi chuyên Hoá",
+    "Giúp học sinh thi đỗ vào Trường THPT chuyên Trần Đại Nghĩa"
+  ],
+  "bio": "Tham gia đội tuyển Hóa học từ cấp 2 và đam mê nghiên cứu môn Hoá",
+  "about": "Tôi chú trọng giúp học sinh nắm vững kiến thức từ cơ bản đến nâng cao trong các kỳ thi quan trọng",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/hYFNgbH/gsu-LNgoc-B-o-Khanh.png"
+},
+{
+  "_id": {
+    "$oid": "670d310a3036f7cccb0c90e3"
+  },
+  "email": "lhply2003@gmail.com",
+  "password": "123",
+  "name": "Lê Hà Phương Ly",
+  "phone": "0947458174",
+  "price": 800000,
+  "gender": "female",
+  "address": "Hà Huy Giáp Hải Châu Đà Nẵng",
+  "age": 22,
+  "role": "tutor",
+  "specialization": "English",
+  "qualifications": [
+    {
+      "name": "Cử nhân Ngôn ngữ Anh Đại học Ngoại Ngữ Đà Nẵng",
+      "img": "https://i.ibb.co/mScMDCq/Certi-LH-Ph-ng-Ly-1.png"
+    }
+  ],
+  "experiences": [
+    "4 năm kinh nghiệm dạy kèm Tiếng Anh cho học sinh cấp 1 và cấp 2",
+    "Giúp nhiều học sinh cải thiện kỹ năng nghe và nói, chuẩn bị tốt cho các kỳ thi"
+  ],
+  "bio": "Đạt giải Nhất cuộc thi hùng biện Tiếng Anh cấp Tỉnh",
+  "about": "Phương pháp của tôi tập trung vào phát triển toàn diện các kỹ năng ngôn ngữ cho học sinh",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/5WrwymR/gsu-L-H-Ph-ng-Ly.png"
+},
+{
+  "_id": {
+    "$oid": "670d310a3036f7cccb0c90e4"
+  },
+  "email": "ducvonguyen@gmail.com",
+  "password": "123",
+  "name": "Võ Nguyên Đức",
+  "phone": "0759093587",
+  "price": 400000,
+  "gender": "male",
+  "address": "57 Trà Lộ Ngũ Hành Sơn Đà Nẵng",
+  "age": 20,
+  "role": "tutor",
+  "specialization": "Chemistry",
+  "qualifications": [
+    {
+      "name": "Giải nhì học sinh giỏi Hoá lớp 12 cấp Thành Phố",
+      "img": "https://i.ibb.co/dJp1zjS/CERTI-GIA-S-V-NGUY-N-C.png"
+    }
+  ],
+  "experiences": [
+    "2 năm kinh nghiệm dạy Hóa với hơn 30 học sinh đạt điểm 8-9",
+    "Giúp nhiều học sinh lấy lại được gốc Hoá Học"
+  ],
+  "bio": "Có niềm đam mê với Hoá Học và phương pháp dạy giúp học sinh nắm chắc kiến thức",
+  "about": "Phương pháp giảng dạy của tôi hướng đến việc tạo nền tảng vững chắc cho học sinh",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/CWv63vb/GIA-S-V-NGUY-N-C.png"
+},
+{
+  "_id": {
+    "$oid": "670d310a3036f7cccb0c90e5"
+  },
+  "email": "sycuongnguyen@gmail.com",
+  "password": "123",
+  "name": "Nguyễn Sỹ Cường",
+  "phone": "0797804096",
+  "price": 500000,
+  "gender": "male",
+  "address": "46 Phạm Kiệt Khuê Mỹ Ngũ Hành Sơn Đà Nẵng",
+  "age": 24,
+  "role": "tutor",
+  "specialization": "English",
+  "qualifications": [
+    {
+      "name": "Giải nhất học sinh giỏi Tiếng Anh lớp 12 cấp Tỉnh",
+      "img": "https://i.ibb.co/XCBsWKT/CERTI-GIA-S-NGUY-N-S-C-NG.png"
+    }
+  ],
+  "experiences": [
+    "3 năm kinh nghiệm dạy kèm tiếng Anh cho học sinh cấp 1 và cấp 2",
+    "Giúp nhiều học sinh cải thiện kỹ năng giao tiếp và viết lách"
+  ],
+  "bio": "Đam mê với ngôn ngữ và phương pháp giảng dạy sinh động dễ hiểu",
+  "about": "Phương pháp giảng dạy của tôi linh hoạt, phù hợp với từng học sinh",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/mq3VfH0/GIA-S-NGUY-N-S-C-NG.png"
+},
+{
+  "_id": {
+    "$oid": "670d314b3036f7cccb0c90e7"
+  },
+  "email": "quocdat2003@gmail.com",
+  "password": "123",
+  "name": "Lê Nguyễn Quốc Đạt",
+  "phone": "0788072492",
+  "price": 750000,
+  "gender": "male",
+  "address": "Trần Văn Hai Hòa Hải Ngũ Hành Sơn Đà Nẵng",
+  "age": 21,
+  "role": "tutor",
+  "specialization": "Mathematics",
+  "qualifications": [
+    {
+      "name": "Học sinh đội tuyển toán trường THPT Hai Bà Trưng Huế",
+      "img": "https://i.ibb.co/cby5kGk/9.png"
+    }
+  ],
+  "experiences": [
+    "2 năm kinh nghiệm dạy kèm Toán cho học sinh cấp 1 và cấp 2",
+    "Ôn thi học sinh từ lớp 9 lên 10 với tỷ lệ đậu cao",
+    "Ôn thi đội tuyển các cấp"
+  ],
+  "bio": "Áp dụng phương pháp giảng dạy tương tác và thực hành nhiều",
+  "about": "Tôi chú trọng việc sửa bài tập liên tục để học sinh nắm bắt được kiến thức và hiểu được lỗi sai",
+  "averageRating": 0,
+  "totalRating": 0,
+  "isApproved": "approved",
+  "isVerified": true,
+  "photo": "https://i.ibb.co/yWw16GW/gia-s-l-ng-qu-c-t.jpg"
+}]

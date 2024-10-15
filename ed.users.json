@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "670e04bf36523fb5bc37f3e3"
+  },
+  "email": "user@example.com",
+  "password": "123",
+  "name": "Nguoi dung 1",
+  "role": "admin",
+  "booking": [],
+  "verificationToken": "15a03b0c395a5cdee67d6d357914f521742ce283cebb2658ea4f9983abcfcde7",
+  "verificationTokenExpiry": {
+    "$date": "2024-10-15T06:59:27.738Z"
+  },
+  "isVerified": "true",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670e058a36523fb5bc37f3ec"
+  },
+  "email": "hoang@gmail.com",
+  "password": "123",
+  "name": "Hoang Viet",
+  "role": "parent",
+  "booking": [
+    {
+      "$oid": "670e089bf6527c9922a1f6c7"
+    }
+  ],
+  "verificationToken": "7ced1aacfdc2bcb6eb1080e026d962799d24a0467ebc78313dcc92786c1c2537",
+  "verificationTokenExpiry": {
+    "$date": "2024-10-15T07:02:50.983Z"
+  },
+  "isVerified": "true",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670e07228b5cca6b5fc6e31c"
+  },
+  "email": "admin@gmail.com",
+  "password": "123",
+  "name": "Nguyen Van B",
+  "role": "admin",
+  "booking": [],
+  "verificationToken": "edc665291d4f6b909b3f0a77d0c7d233db0fac61714eab26b9259905c4c0db54",
+  "verificationTokenExpiry": {
+    "$date": "2024-10-15T07:09:38.046Z"
+  },
+  "isVerified": "true",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670e0b350eca655dddd6f105"
+  },
+  "email": "nhatphde170078@fpt.edu.vn",
+  "password": "123",
+  "name": "Nguyen Van B",
+  "role": "admin",
+  "booking": [],
+  "verificationToken": "dc8e56e61dcc481a9f9d238f825246fcf17450c51117c9577e7e2ebfe8a05941",
+  "verificationTokenExpiry": {
+    "$date": "2024-10-15T07:27:01.286Z"
+  },
+  "isVerified": "true",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670e0b660eca655dddd6f108"
+  },
+  "email": "user2@gmail.com",
+  "password": "123",
+  "name": "Nguoi dung 2",
+  "role": "parent",
+  "booking": [],
+  "verificationToken": "0e72cd342e276cd2424665d9613ecf8f96e5661821292c17b0f5146e233d6b39",
+  "verificationTokenExpiry": {
+    "$date": "2024-10-15T07:27:50.778Z"
+  },
+  "isVerified": "true",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670e0b6c0eca655dddd6f10b"
+  },
+  "email": "user3@gmail.com",
+  "password": "123",
+  "name": "Nguoi dung 3",
+  "role": "parent",
+  "booking": [],
+  "verificationToken": "648d28ce9baae09c5a1736cbd203a1b3c0a440a65471a662559253d0d739e71c",
+  "verificationTokenExpiry": {
+    "$date": "2024-10-15T07:27:56.974Z"
+  },
+  "isVerified": "true",
+  "__v": 0
+}]
