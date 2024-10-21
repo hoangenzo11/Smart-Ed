@@ -9,17 +9,23 @@ const bookingSchema = new mongoose.Schema(
         },
         user: {
             type: mongoose.Types.ObjectId,
-            ref: "User", // Ensure this line correctly references the User model
+            ref: "User",
             required: true,
         },
-
         appointmentDate: {
             type: Date,
             required: true,
         },
+
         timeSlot: {
-            type: String,
-            required: true,
+            start: {
+                type: Date,
+                required: true,
+            },
+            end: {
+                type: Date,
+                required: true,
+            },
         },
         status: {
             type: String,
@@ -33,6 +39,12 @@ const bookingSchema = new mongoose.Schema(
     },
     { timestamps: true }
 );
+// bookingSchema.pre("save", function (next) {
+//     if (this.timeSlot.start) {
+//         this.timeSlot.end = new Date(this.timeSlot.start.getTime() + 2 * 60 * 60 * 1000);
+//     }
+//     next();
+// });
 
 const Booking = mongoose.model("Booking", bookingSchema);
 

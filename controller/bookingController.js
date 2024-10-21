@@ -6,10 +6,17 @@ const User = require('../models/userSchema');
 const getAllBookings = async (req, res) => {
     try {
         const bookings = await Booking.find()
-            .populate('tutor', 'name')
-            .populate('user') // Ensure this line correctly populates the user field
-        console.log('All Bookings:', bookings);
-        res.status(200).json({ success: true, data: bookings });
+            .populate('tutor', 'name price')
+            .populate('user', 'name email');
+
+        let totalSum = 0;
+        bookings.forEach(booking => {
+            if (booking.status === 'approved') {
+                totalSum += booking.tutor.price;
+            }
+        });
+
+        res.status(200).json({ success: true, data: bookings, totalSum });
     } catch (error) {
         res.status(400).json({ success: false, error: error.message });
     }
@@ -24,7 +31,7 @@ const getUserBookings = async (req, res) => {
                 .populate('user', 'name email');
         } else {
             bookings = await Booking.find({ user: req.user._id })
-                .populate('tutor', 'name')
+                .populate('tutor', 'name price')
                 .populate('user', 'name email');
         }
         res.status(200).json({ success: true, data: bookings });
@@ -34,15 +41,15 @@ const getUserBookings = async (req, res) => {
 };
 
 const createBooking = async (req, res) => {
-    const { tutor, appointmentDate, timeSlot } = req.body;
+    const { tutor,appointmentDate, timeSlot } = req.body;
     const userId = req.params.userId; // Get the user ID from the request parameters
 
     try {
         const newBooking = new Booking({
             tutor,
             user: userId,
-            appointmentDate,
             timeSlot,
+            appointmentDate,
             status: 'pending',
         });
 
