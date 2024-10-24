@@ -1,5 +1,5 @@
-const Review = require("../models/ReviewSchema");
-const Tutor = require("../models/TutorSchema");
+const Review = require("../models/reviewSchema");
+const Tutor = require("../models/tutorSchema");
 
 const getAllReviews = async (req, res) => {
     try {

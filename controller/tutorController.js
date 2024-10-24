@@ -1,4 +1,4 @@
-const Tutor = require("../models/TutorSchema");
+const Tutor = require("../models/tutorSchema");
 
 const submitApplication = async (req, res) => {
   const { specialization, qualifications, experiences } = req.body;

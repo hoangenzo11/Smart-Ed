@@ -18,8 +18,8 @@ const userSchema = new mongoose.Schema({
     booking: [{ type: mongoose.Types.ObjectId, ref: "Booking" }],
     resetPasswordToken: {type: String},
     resetPasswordExpires: { type: Date },
-    verificationToken: { type: String }, // Added field for verification token
-    verificationTokenExpiry: { type: Date }, // Added field for verification token expiry
+    verificationToken: { type: String },
+    verificationTokenExpiry: { type: Date },
     isVerified: { type: Boolean, default: false },
 });
 

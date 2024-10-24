@@ -1,8 +1,11 @@
 const jwt = require('jsonwebtoken');
-const Tutor = require('../models/TutorSchema');
-const User = require('../models/UserSchema');
+const Tutor = require('../models/tutorSchema');
+const User = require('../models/userSchema');
 
 
+
+
+// Your token verification logic here
 
 const authenticate = async (req, res, next) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');

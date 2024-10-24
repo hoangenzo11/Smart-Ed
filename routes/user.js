@@ -7,5 +7,4 @@ userRoutes.get('/',authenticate,restrict(['admin']), userController.getAllUsers)
 userRoutes.get('/:id',authenticate,restrict(['parent']), userController.getSingeUser);
 userRoutes.put('/:id',authenticate,restrict(['parent']), userController.updateUser);
 userRoutes.delete('/:id',authenticate,restrict(['parent', 'admin']), userController.deleteUser);
-
 module.exports = userRoutes;
