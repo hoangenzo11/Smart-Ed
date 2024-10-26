@@ -2,7 +2,7 @@ const Tutor = require("../models/tutorSchema");
 
 const submitApplication = async (req, res) => {
   const { specialization, qualifications, experiences } = req.body;
-  const id = req.params.id; // Get tutor ID from URL parameters
+  const id = req.params.id;
 
   try {
     console.log("Tutor ID:", id);
