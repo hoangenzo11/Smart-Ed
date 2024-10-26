@@ -12,21 +12,24 @@ const bookingSchema = new mongoose.Schema(
             ref: "User",
             required: true,
         },
-        appointmentDate: {
-            type: Date,
-            required: true,
-        },
-
-        timeSlot: {
-            start: {
+        appointmentDates: [
+            {
                 type: Date,
                 required: true,
-            },
-            end: {
-                type: Date,
-                required: true,
-            },
-        },
+            }
+        ],
+        timeSlots: [
+            {
+                start: {
+                    type: Date,
+                    required: true,
+                },
+                end: {
+                    type: Date,
+                    required: true,
+                },
+            }
+        ],
         status: {
             type: String,
             enum: ["pending", "approved", "cancelled"],
@@ -39,12 +42,7 @@ const bookingSchema = new mongoose.Schema(
     },
     { timestamps: true }
 );
-// bookingSchema.pre("save", function (next) {
-//     if (this.timeSlot.start) {
-//         this.timeSlot.end = new Date(this.timeSlot.start.getTime() + 2 * 60 * 60 * 1000);
-//     }
-//     next();
-// });
+
 
 const Booking = mongoose.model("Booking", bookingSchema);
 

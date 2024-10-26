@@ -23,7 +23,7 @@ dotenv.config();
 
 
 const app = express();
-const port = process.env.PORT || 5000;
+const baseUrl = process.env.BASE_URL || 'http://localhost:5000';
 
 const corsOptions = {
     origin: true
@@ -81,8 +81,8 @@ app.use('/api/tutor', tutorRoutes);
 app.use('/api/review', reviewRoutes);
 app.use('/api/booking', bookingRoutes);
 
-app.listen(port, () => {
+app.listen(new URL(baseUrl).port, () => {
     connectDB();
     // createAdminAccount()
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running at ${baseUrl}`);
 });

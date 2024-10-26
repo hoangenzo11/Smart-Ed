@@ -6,17 +6,11 @@ const User = require('../models/userSchema');
 const getAllBookings = async (req, res) => {
     try {
         const bookings = await Booking.find()
-            .populate('tutor', 'name price')
-            .populate('user', 'name email');
+            .populate('tutor', 'name price specialization')
+            .populate('user', 'name email address');
 
-        let totalSum = 0;
-        bookings.forEach(booking => {
-            if (booking.status === 'approved') {
-                totalSum += booking.tutor.price;
-            }
-        });
 
-        res.status(200).json({ success: true, data: bookings, totalSum });
+        res.status(200).json({ success: true, data: bookings });
     } catch (error) {
         res.status(400).json({ success: false, error: error.message });
     }
@@ -41,31 +35,38 @@ const getUserBookings = async (req, res) => {
 };
 
 const createBooking = async (req, res) => {
-    const { tutor,appointmentDate, timeSlot } = req.body;
+    const { tutor, appointmentDates, timeSlots } = req.body;
     const userId = req.params.userId; // Get the user ID from the request parameters
 
+    if (appointmentDates.length !== timeSlots.length) {
+        return res.status(400).json({ success: false, error: 'Appointment dates and time slots must have the same length' });
+    }
+
     try {
-        const newBooking = new Booking({
-            tutor,
-            user: userId,
-            timeSlot,
-            appointmentDate,
-            status: 'pending',
-        });
+        const bookings = [];
 
-        const savedBooking = await newBooking.save();
+        for (let i = 0; i < appointmentDates.length; i++) {
+            const newBooking = new Booking({
+                tutor,
+                user: userId,
+                appointmentDates: [appointmentDates[i]],
+                timeSlots: [timeSlots[i]],
+                status: 'pending',
+            });
 
-        // Update the Tutor and User models
-        await Tutor.findByIdAndUpdate(tutor, { $push: { booking: savedBooking._id } });
-        await User.findByIdAndUpdate(userId, { $push: { booking: savedBooking._id } });
+            const savedBooking = await newBooking.save();
 
-        const imageUrl = `${req.protocol}://${req.get('host')}/images/qrcode.png`;
+            // Update the Tutor and User models
+            await Tutor.findByIdAndUpdate(tutor, { $push: { booking: savedBooking._id } });
+            await User.findByIdAndUpdate(userId, { $push: { booking: savedBooking._id } });
+
+            bookings.push(savedBooking);
+        }
 
         res.status(200).json({
             success: true,
-            message: 'Booking created successfully',
-            data: savedBooking,
-            imageUrl,
+            message: 'Bookings created successfully',
+            data: bookings,
         });
     } catch (error) {
         res.status(400).json({ success: false, error: error.message });
