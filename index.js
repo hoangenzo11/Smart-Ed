@@ -73,7 +73,7 @@ const createAdminAccount = async () => {
 
 // Routes
 app.get('/', (req, res) => {
-    const imagePath = path.join('D:', 'backend', 'images', 'check.jpg');
+    const imagePath = path.join(__dirname, 'images', 'check.jpg');
     res.sendFile(imagePath);
 });
 app.use('/api/auth', authRoutes);
