@@ -62,6 +62,9 @@
 		},
 		{
 			"name": "Decode",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -71,6 +74,15 @@
 				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": "http://localhost:5000/api/auth/decode-token"
 			},
 			"response": []
@@ -236,7 +248,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"action\":\"accept\"\r\n}",
+					"raw": "{\r\n    \"action\":\"accept\",\r\n    \"price\":\"600000\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -253,21 +265,36 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NmI0MjA0MDJiNjJiMDY2NzZiNzAiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzU5ODU3LCJleHAiOjE3Mjk5NTE4NTd9.pLADdl2HzKWp5MLzjs2J2aAinI2Jk834e78QLKTyecE"
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzFmMDQ1Yjg5MGQ5YjM1MjEzMGUwYTciLCJlbWFpbCI6ImNoaXBoYW0xMTAyQGdtYWlsLmNvbSIsInJvbGUiOiJwYXJlbnQiLCJpYXQiOjE3MzAyMTYwNzYsImV4cCI6MTczMjgwODA3Nn0.nrZulmi9dqmKR7Q0U-1MyOAR84Zdb0TRnQR4S4zb2V8"
 					}
 				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"reviewText\":\"good\",\r\n    \"rating\":\"4\"\r\n}",
+					"raw": "{\r\n    \"tutorId\":\"670d30093036f7cccb0c90db\",\r\n    \"reviewText\":\"Dang cap\",\r\n    \"rating\":\"4\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:5000/api/tutor//66f563973539a7c3fd931832/review"
+				"url": "http://localhost:5000/api/tutor/review"
+			},
+			"response": []
+		},
+		{
+			"name": "My review",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzFmMDQ1Yjg5MGQ5YjM1MjEzMGUwYTciLCJlbWFpbCI6ImNoaXBoYW0xMTAyQGdtYWlsLmNvbSIsInJvbGUiOiJwYXJlbnQiLCJpYXQiOjE3MzAyMTYwNzYsImV4cCI6MTczMjgwODA3Nn0.nrZulmi9dqmKR7Q0U-1MyOAR84Zdb0TRnQR4S4zb2V8"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/api/review/my-reviews"
 			},
 			"response": []
 		},
@@ -298,6 +325,12 @@
 		{
 			"name": "Approal booking",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzBlMDcyMjhiNWNjYTZiNWZjNmUzMWMiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyOTUwNDIxNSwiZXhwIjoxNzMyMDk2MjE1fQ.-dtSqetKc8jebVBu6d3CjMVWzqk3tSlVLNN8L_iPyJQ"
+					}
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
@@ -309,7 +342,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/api/booking/approve/66f574dd36af72870cca6a51"
+				"url": "http://localhost:5000/api/booking/approve/67165bf7e3bd570b0e6d5a60"
 			},
 			"response": []
 		},
@@ -319,7 +352,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzBlMDcyMjhiNWNjYTZiNWZjNmUzMWMiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyOTQ4MTIzMSwiZXhwIjoxNzMyMDczMjMxfQ.Z4cFrnSoPmQqWUMLcmY06wKqzWUq5YMPQ4eVgEatdrs"
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzFmMGI3Mjg5MGQ5YjM1MjEzMGUwZDkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczMDA4ODI5NywiZXhwIjoxNzMyNjgwMjk3fQ.yhoXiJrsTHIgvWihQD1tU-gpIA2IA4Q-9Bq9WoXlcBs"
 					}
 				},
 				"method": "GET",

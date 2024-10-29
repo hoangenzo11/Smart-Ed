@@ -5,7 +5,7 @@ const { authenticate, restrict } = require('../auth/verifyToken');
 
 const reviewRoutes = require('./review');
 
-tutorRoutes.use('/:tutorId/review', reviewRoutes);
+tutorRoutes.use('/review', reviewRoutes);
 tutorRoutes.get('/', tutorController.getAllTutors);
 tutorRoutes.get('/search', tutorController.searchTutorByName);
 tutorRoutes.post('/apply/:id', authenticate, restrict(['tutor']), tutorController.submitApplication);

@@ -4,8 +4,7 @@ const reviewController = require('../controller/reviewController');
 const {authenticate, restrict} = require("../auth/verifyToken");
 
 reviewRoutes.route('/')
-    .get(reviewController.getAllReviews)
-    .post(authenticate,restrict(['parent']),reviewController.createReview);
-
+    .post(authenticate,restrict(['parent']),reviewController.createReview)
+reviewRoutes.get('/my-reviews', authenticate, restrict(['parent']), reviewController.getMyReviews);
 module.exports = reviewRoutes;
 
