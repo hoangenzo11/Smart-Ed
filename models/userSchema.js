@@ -16,6 +16,8 @@ const userSchema = new mongoose.Schema({
     age: {type: Number},
     currentGrade: {type: Number},
     booking: [{ type: mongoose.Types.ObjectId, ref: "Booking" }],
+    reviews: [{ type: mongoose.Types.ObjectId, ref: "Review" }],
+
     resetPasswordToken: {type: String},
     resetPasswordExpires: { type: Date },
     verificationToken: { type: String },

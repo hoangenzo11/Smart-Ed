@@ -1,14 +1,8 @@
 const Review = require("../models/reviewSchema");
 const Tutor = require("../models/tutorSchema");
+const User = require("../models/userSchema");
 
-const getAllReviews = async (req, res) => {
-    try {
-        const reviews = await Review.find({});
-        res.status(200).json({ success: true, data: reviews });
-    } catch (error) {
-        res.status(400).json({ success: false, error: error.message });
-    }
-};
+
 
 const createReview = async (req, res) => {
     const userId = req.user._id; // Get the user ID from the decoded token
@@ -24,6 +18,9 @@ const createReview = async (req, res) => {
     try {
         const savedReview = await newReview.save();
         await Tutor.findByIdAndUpdate(tutorId, {
+            $push: { reviews: savedReview._id }
+        });
+        await User.findByIdAndUpdate(userId, {
             $push: { reviews: savedReview._id }
         });
         res.status(200).json({ success: true, message: 'Review submitted', data: savedReview });
@@ -53,7 +50,6 @@ const getMyReviews = async (req, res) => {
 };
 
 const reviewController = {
-    getAllReviews,
     createReview,
     getMyReviews // Add the new function here
 };
