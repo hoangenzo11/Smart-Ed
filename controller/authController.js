@@ -242,6 +242,15 @@ const forgotPassword = async (req, res) => {
     }
 };
 
+const decodeToken = (req, res) => {
+    try {
+        const user = req.user; // `req.user` is set by the `authenticate` middleware
+        res.status(200).json({ success: true, userId: user._id });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
 const AuthController = {
     register,
     verifyEmail,
@@ -249,7 +258,8 @@ const AuthController = {
     logout,
     requestPasswordReset,
     resetPassword,
-    forgotPassword
+    forgotPassword,
+    decodeToken // Add the new function here
 };
 
 module.exports = AuthController;

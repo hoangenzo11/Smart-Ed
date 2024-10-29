@@ -36,7 +36,7 @@ const getUserBookings = async (req, res) => {
 
 const createBooking = async (req, res) => {
     const { tutor, appointmentDates, timeSlots } = req.body;
-    const userId = req.params.userId; // Get the user ID from the request parameters
+    const userId = req.user._id; // Get the user ID from the decoded token
 
     if (appointmentDates.length !== timeSlots.length) {
         return res.status(400).json({ success: false, error: 'Appointment dates and time slots must have the same length' });

@@ -10,4 +10,5 @@ authRoutes.post('/logout', authenticate, authController.logout);
 authRoutes.post('/request-password-reset', authController.requestPasswordReset);
 authRoutes.post('/reset-password/:id', authenticate, authController.resetPassword);
 authRoutes.post('/forgot-password', authController.forgotPassword);
+authRoutes.get('/decode-token', authenticate, authController.decodeToken);
 module.exports= authRoutes;

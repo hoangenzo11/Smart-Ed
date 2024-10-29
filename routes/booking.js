@@ -6,7 +6,7 @@ const { authenticate, restrict } = require('../auth/verifyToken');
 
 bookingRoutes.get('/all', authenticate, restrict(['admin']), bookingController.getAllBookings);
 bookingRoutes.get('/my-bookings', authenticate, bookingController.getUserBookings);
-bookingRoutes.post('/:userId', authenticate, restrict(['parent']), bookingController.createBooking);
+bookingRoutes.post('/', authenticate, restrict(['parent']), bookingController.createBooking);
 bookingRoutes.put('/approve/:id', authenticate, restrict(['admin']), bookingController.approveBooking);
 
 module.exports = bookingRoutes;

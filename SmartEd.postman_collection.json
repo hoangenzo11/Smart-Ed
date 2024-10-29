@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "76d5c3b3-829d-4072-93c6-1976af5e41ac",
 		"name": "SmartEd",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "36971272"
 	},
 	"item": [
@@ -20,19 +20,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"register"
-					]
-				}
+				"url": "http://localhost:5000/api/auth/register"
 			},
 			"response": []
 		},
@@ -50,19 +38,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/auth/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
-				}
+				"url": "http://localhost:5000/api/auth/login"
 			},
 			"response": []
 		},
@@ -71,19 +47,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/auth/reset-password",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"reset-password"
-					]
-				}
+				"url": "http://localhost:5000/api/auth/reset-password"
 			},
 			"response": []
 		},
@@ -92,19 +56,22 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/auth/logout",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"logout"
-					]
-				}
+				"url": "http://localhost:5000/api/auth/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "Decode",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzBkMzAwOTMwMzZmN2NjY2IwYzkwZGIiLCJlbWFpbCI6Im5ob250cnVuZ25ndXllbjk3QGdtYWlsLmNvbSIsInJvbGUiOiJ0dXRvciIsImlhdCI6MTczMDE4MDEyNCwiZXhwIjoxNzMyNzcyMTI0fQ.ArLfRQVlyPNa9Qwdte9Jr0V75q3pxeWzwmRc0MFwTiY"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/api/auth/decode-token"
 			},
 			"response": []
 		},
@@ -113,19 +80,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/auth/request-password-reset",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"request-password-reset"
-					]
-				}
+				"url": "http://localhost:5000/api/auth/request-password-reset"
 			},
 			"response": []
 		},
@@ -134,19 +89,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/auth/forgot-password",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"auth",
-						"forgot-password"
-					]
-				}
+				"url": "http://localhost:5000/api/auth/forgot-password"
 			},
 			"response": []
 		},
@@ -178,33 +121,32 @@
 			"response": []
 		},
 		{
+			"name": "Get all parent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzFmMGI3Mjg5MGQ5YjM1MjEzMGUwZDkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczMDE4MDc0OCwiZXhwIjoxNzMyNzcyNzQ4fQ.r-j14CJhD2r7E7TBrkDUsB5Gy0frFbRS7VJJHXGptW4"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/api/user"
+			},
+			"response": []
+		},
+		{
 			"name": "Get single user",
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NTc0OWI5MDI2Njk3MWEyMjY3NGUiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzU3MzQwLCJleHAiOjE3Mjk5NDkzNDB9.DKUcDCJvtSXzs08C1yhB_dnnZTBUPLkCxoo6KYc40nc",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NTc0OWI5MDI2Njk3MWEyMjY3NGUiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzU3MzQwLCJleHAiOjE3Mjk5NDkzNDB9.DKUcDCJvtSXzs08C1yhB_dnnZTBUPLkCxoo6KYc40nc"
+					}
 				},
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/user/66f55749b90266971a22674e",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"66f55749b90266971a22674e"
-					]
-				}
+				"url": "http://localhost:5000/api/user/66f55749b90266971a22674e"
 			},
 			"response": []
 		},
@@ -229,13 +171,9 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1YTU0M2NmNWIyYTAyMTU3YjNmNGIiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3Mzc1Mjc5LCJleHAiOjE3Mjk5NjcyNzl9.52t5UusMLQCi06t988VXLKE_MY3-9AuFYpErczOqiok",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1YTU0M2NmNWIyYTAyMTU3YjNmNGIiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3Mzc1Mjc5LCJleHAiOjE3Mjk5NjcyNzl9.52t5UusMLQCi06t988VXLKE_MY3-9AuFYpErczOqiok"
+					}
 				},
 				"method": "PUT",
 				"header": [],
@@ -248,19 +186,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/66f5a543cf5b2a02157b3f4b",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"66f5a543cf5b2a02157b3f4b"
-					]
-				}
+				"url": "http://localhost:5000/api/user/66f5a543cf5b2a02157b3f4b"
 			},
 			"response": []
 		},
@@ -269,13 +195,9 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NjM5NzM1MzlhN2MzZmQ5MzE4MzIiLCJlbWFpbCI6ImhvYW5ndHV0b3JAZ21haWwuY29tIiwicm9sZSI6InR1dG9yIiwiaWF0IjoxNzI3MzU4Mzg0LCJleHAiOjE3Mjk5NTAzODR9.O_yz4qCgHadM-gGk34EXjWxXOLZuq7Y6-EfkZC-wKn8",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NjM5NzM1MzlhN2MzZmQ5MzE4MzIiLCJlbWFpbCI6ImhvYW5ndHV0b3JAZ21haWwuY29tIiwicm9sZSI6InR1dG9yIiwiaWF0IjoxNzI3MzU4Mzg0LCJleHAiOjE3Mjk5NTAzODR9.O_yz4qCgHadM-gGk34EXjWxXOLZuq7Y6-EfkZC-wKn8"
+					}
 				},
 				"method": "POST",
 				"header": [],
@@ -288,19 +210,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/tutor/apply",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"tutor",
-						"apply"
-					]
-				}
+				"url": "http://localhost:5000/api/tutor/apply"
 			},
 			"response": []
 		},
@@ -309,29 +219,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NjJjOGMxOThkYzgzZGRiOGE2YzgiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNzM3NjI4MSwiZXhwIjoxNzI5OTY4MjgxfQ.imPmYi0-H9VartFtf2-j_H406KHW-X0aLemv3K8bqBU",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NjJjOGMxOThkYzgzZGRiOGE2YzgiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyNzM3NjI4MSwiZXhwIjoxNzI5OTY4MjgxfQ.imPmYi0-H9VartFtf2-j_H406KHW-X0aLemv3K8bqBU"
+					}
 				},
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/tutor/applications",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"tutor",
-						"applications"
-					]
-				}
+				"url": "http://localhost:5000/api/tutor/applications"
 			},
 			"response": []
 		},
@@ -349,20 +243,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/tutor/approval/66f563973539a7c3fd931832",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"tutor",
-						"approval",
-						"66f563973539a7c3fd931832"
-					]
-				}
+				"url": "http://localhost:5000/api/tutor/approval/66f563973539a7c3fd931832"
 			},
 			"response": []
 		},
@@ -371,13 +252,9 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NmI0MjA0MDJiNjJiMDY2NzZiNzAiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzU5ODU3LCJleHAiOjE3Mjk5NTE4NTd9.pLADdl2HzKWp5MLzjs2J2aAinI2Jk834e78QLKTyecE",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NmI0MjA0MDJiNjJiMDY2NzZiNzAiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzU5ODU3LCJleHAiOjE3Mjk5NTE4NTd9.pLADdl2HzKWp5MLzjs2J2aAinI2Jk834e78QLKTyecE"
+					}
 				},
 				"method": "POST",
 				"header": [],
@@ -390,21 +267,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/tutor//66f563973539a7c3fd931832/review",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"tutor",
-						"",
-						"66f563973539a7c3fd931832",
-						"review"
-					]
-				}
+				"url": "http://localhost:5000/api/tutor//66f563973539a7c3fd931832/review"
 			},
 			"response": []
 		},
@@ -413,38 +276,22 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmY1NmI0MjA0MDJiNjJiMDY2NzZiNzAiLCJlbWFpbCI6InZpZXRob2FuZ3ZvMDEwMUBnbWFpbC5jb20iLCJyb2xlIjoicGFyZW50IiwiaWF0IjoxNzI3MzYxODI2LCJleHAiOjE3Mjk5NTM4MjZ9.qIw_QOlmRtNHAyy7NnCKnH82UkzqUHU7M_z9RmPYTU4",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzFmMDQ1Yjg5MGQ5YjM1MjEzMGUwYTYiLCJlbWFpbCI6InRoYW5odGh1eXRyYW5AZ21haWwuY29tIiwicm9sZSI6InBhcmVudCIsImlhdCI6MTczMDE4MDM1MCwiZXhwIjoxNzMyNzcyMzUwfQ.blLJZ3HmRR1qywgVvsbJPAO7TxfS6UhdxQZLgHfyFjg"
+					}
 				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"tutor\": \"66f563973539a7c3fd931832\",\r\n    \"price\": \"50\",\r\n    \"appointmentDate\": \"2023-10-15T10:00:00Z\",\r\n    \"timeSlot\": \"10:00 AM - 11:00 AM\"\r\n}",
+					"raw": "{\r\n        \"tutor\": \"670d30093036f7cccb0c90dd\",\r\n        \"appointmentDates\": [\r\n            \"2024-11-01T00:00:00.000Z\"\r\n        ],\r\n        \"timeSlots\": [\r\n            {\r\n                \"start\": \"2024-11-01T18:00:00.000Z\",\r\n                \"end\": \"2024-11-01T20:00:00.000Z\"\r\n            }\r\n        ]\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/booking/66f56b420402b62b06676b70",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"booking",
-						"66f56b420402b62b06676b70"
-					]
-				}
+				"url": "http://localhost:5000/api/booking/"
 			},
 			"response": []
 		},
@@ -462,36 +309,49 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/booking/approve/66f574dd36af72870cca6a51",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"booking",
-						"approve",
-						"66f574dd36af72870cca6a51"
-					]
-				}
+				"url": "http://localhost:5000/api/booking/approve/66f574dd36af72870cca6a51"
 			},
 			"response": []
 		},
 		{
 			"name": "Get all booking",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzBlMDcyMjhiNWNjYTZiNWZjNmUzMWMiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyOTQ4MTIzMSwiZXhwIjoxNzMyMDczMjMxfQ.Z4cFrnSoPmQqWUMLcmY06wKqzWUq5YMPQ4eVgEatdrs"
+					}
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": "http://localhost:5000/api/booking/all"
 			},
 			"response": []
 		},
 		{
 			"name": "Get own booking",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzBkMzAwOTMwMzZmN2NjY2IwYzkwZGIiLCJlbWFpbCI6Im5ob250cnVuZ25ndXllbjk3QGdtYWlsLmNvbSIsInJvbGUiOiJ0dXRvciIsImlhdCI6MTcyOTY0NzExNCwiZXhwIjoxNzMyMjM5MTE0fQ.A9G4kgZzMqQ6Ao5h-vHmZ7g3Qs8z_JP5OB8MJcSVHP0"
+					}
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/booking/my-bookings"
 			},
 			"response": []
 		},
@@ -500,19 +360,15 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/tutor/66f5a5f4753a4ffed9537214",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"tutor",
-						"66f5a5f4753a4ffed9537214"
-					]
-				}
+				"url": "http://localhost:5000/api/tutor/66f5a5f4753a4ffed9537214"
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
